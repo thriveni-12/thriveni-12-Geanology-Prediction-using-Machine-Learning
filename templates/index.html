@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Trait Matcher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Family Trait Matcher</h1>
+        <p>Upload images of family members to analyze facial trait similarities.</p>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <div class="upload-group">
+                <label>Upload Grandmother's Image:</label>
+                <input type="file" name="grandmother">
+            </div>
+            <div class="upload-group">
+                <label>Upload Grandfather's Image:</label>
+                <input type="file" name="grandfather">
+            </div>
+            <div class="upload-group">
+                <label>Upload Mother's Image:</label>
+                <input type="file" name="mother">
+            </div>
+            <div class="upload-group">
+                <label>Upload Father's Image:</label>
+                <input type="file" name="father">
+            </div>
+            <div class="upload-group">
+                <label>Upload Child's Image:</label>
+                <input type="file" name="child" required>
+            </div>
+            <button type="submit">Analyze Traits</button>
+        </form>
+    </div>
+</body>
+</html>

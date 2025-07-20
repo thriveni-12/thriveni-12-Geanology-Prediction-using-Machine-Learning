@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trait Matching Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Matching Traits Results</h1>
+        <div class="uploaded-images">
+            {% for relation, filename in uploaded_images.items() %}
+                <div class="image-container">
+                    <h3>{{ relation | capitalize }}'s Image</h3>
+                    <img src="{{ url_for('static', filename='uploaded/' + filename) }}" alt="{{ relation }}'s image">
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="results">
+            <h2>Matching Characteristics</h2>
+            <div class="characteristics">
+                {% for relation, traits in matching_characteristics.items() %}
+                    <div class="traits-card">
+                        <h3>{{ relation | capitalize }}</h3>
+                        <ul>
+                            {% for trait in traits %}
+                                <li>{{ trait }}</li>  <!-- Only print trait names -->
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <a href="/" class="back-button">Back to Home</a>
+    </div>
+</body>
+</html>
